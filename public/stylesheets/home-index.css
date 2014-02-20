@@ -1,0 +1,37 @@
+body{
+    max-width: 90%;
+    margin: auto;
+}
+
+header{
+    margin: 30px 0px 30px 0px;
+    padding: 40px 10px 40px 0px;
+}
+
+header h1 {
+    text-align: center;
+}
+
+.site-intro {
+    width: 50%;
+    height: 200px;
+    padding: 10% 19.14% 15% 0%;
+    border-right: 1px solid #CCCCCC;
+}
+.site-intro p {
+}
+
+.signin {
+    width: 50%;
+    height: 200px;
+    padding: 5% 0% 0% 0%;
+}
+.signin h2 {
+    text-align: center;
+}
+
+.signin .btn {
+    display: block;
+    padding: 2% 30%;
+    margin: auto;
+}
