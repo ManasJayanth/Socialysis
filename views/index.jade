@@ -1,14 +1,11 @@
-doctype
-html(lang="en")
-  head
-    meta(charset='utf-8')
-    meta(http-equiv="X-UA-Compatible",content="IE=edge")
-    meta(name="viewport",content="width=device-width,initial-scale=1")
-    title Socialysis
-    link(href="javascripts/bower_components/bootstrap/dist/css/bootstrap.min.css",
-      rel="stylesheet")
+extends layout
+
+block header
     link(href="stylesheets/home-index.css",rel="stylesheet")
+
+block content
   body
+    div#fb-root
     div.container-fluid
 
       header
@@ -22,5 +19,8 @@ html(lang="en")
         h2 Sign In
         button.btn.btn-default#signin(type="submit") Login with Facebook
 
-    script(src="javascripts/bower_components/jquery/jquery.min.js")
+
+block scripts
+    script(src="javascripts/bower_components/jquery/dist/jquery.min.js")
     script(src="javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js")
+    script(src="javascripts/fb.js")

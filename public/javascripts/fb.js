@@ -2,10 +2,11 @@ function sendDetails (details) {
 
     $.ajax({
         type: "POST",
-        url: "/login",
+        url: "/authentication",
         data: details,
         success: function () {
-            
+
+            window.location = window.location + 'welcome';
             // console.log('Details received'); 
             //Not required as ajax req 
             //is not responded unless error
