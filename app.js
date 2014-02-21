@@ -8,7 +8,7 @@ var user = require('./models/user');
 var http = require('http');
 var path = require('path');
 var FB = require('fb');
-
+var wordcloud = require('./modules/wordcloud');
 var app = express();
 
 // all environments
@@ -67,8 +67,8 @@ app.get('/welcome', function(req, res) {
                            });
                        },
                        function (err) {
-                           console.log('Posts' + temp);
-                           console.log('Messages: ' + temp.length);
+                           var text = temp.join(' ');
+                           wordcloud.createJSON(text);
                       });
             // for(var i in ids) {
             //     FB.api(ids[i] + '/statuses', function (fbres) {

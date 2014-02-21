@@ -28,6 +28,7 @@ function getCommonNouns (text) {
 function getNounCount (arr) {
     var wc = [];
     var text = arr.join(' ');
+    text = text.replace(/[^a-zA-Z ]/g, '');
     
     while(text) {
         var words = text.split(' '),
@@ -40,7 +41,10 @@ function getNounCount (arr) {
         }
         if(word == '') break; // No more nouns left
         var count = 0;
-        var reg = new RegExp(word, 'g');
+        try {
+            var reg = new RegExp(word, 'g');
+        } catch (err) {
+        }
         var myArray;
         var match, matchcount = 0;
         while ((match = reg.exec(text)) !== null)
