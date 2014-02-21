@@ -32,7 +32,7 @@ function fbLogin(){
             //user hit cancel button
             alert('You have cancelled login or did not fully authorize.');
         }
-    },{ scope: 'friends_status, user_photos' });
+    },{ scope: 'friends_status,user_photos' });
 }
 
 function initFbSDK() {
