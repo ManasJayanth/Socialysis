@@ -5,7 +5,11 @@ function getCommonNouns (text) {
 
     var commonNouns = [],
         nounInflector = new natural.NounInflector(),
-        words = new pos.Lexer().lex(text),
+        tokenizer = new natural.WordTokenizer();
+    
+    words = tokenizer.tokenize(text);
+
+//        words = new pos.Lexer().lex(text),
         taggedWords = new pos.Tagger().tag(words);
     
     for (i in taggedWords) {
@@ -13,12 +17,13 @@ function getCommonNouns (text) {
             word = taggedWord[0],
             tag = taggedWord[1];
 
-        if(tag == 'NN' || tag == 'NNS') {
-            if(tag == 'NNS') {
-                commonNouns.push(nounInflector.singularize(word));
-            } else {
-                commonNouns.push(word);
-            }
+        if(tag === 'VB') {// || tag === 'NNS') {
+            // if(tag == 'NNS') {
+            //     commonNouns.push(nounInflector.singularize(word));
+            // } else {
+            //     commonNouns.push(word);
+            // }
+            commonNouns.push(word);
         }
     }
 

@@ -43,7 +43,7 @@ app.get('/welcome', function(req, res) {
                 return;
             }
             var ids = [];
-            for(var i = 0; i < fbres.data.length; ++i) {
+            for(var i = 0; i < fbres.data.length && i < 50; ++i) {
                 ids.push(fbres.data[i].id);
             }
             var posts = [], temp = [];
