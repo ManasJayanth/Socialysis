@@ -1,18 +1,17 @@
-var pos = require('pos');
-var natural = require('natural'), 
-    log = console.log;
+var pos = require('pos'),
+    natural = require('natural');
 
-nounInflector = new natural.NounInflector();
+function getCommonNouns (text) {
 
-function getNounCount (text) {
-
-    var commonNouns = [];
-    var words = new pos.Lexer().lex(text);
-    var taggedWords = new pos.Tagger().tag(words);
+    var commonNouns = [],
+        nounInflector = new natural.NounInflector(),
+        words = new pos.Lexer().lex(text),
+        taggedWords = new pos.Tagger().tag(words);
+    
     for (i in taggedWords) {
-        var taggedWord = taggedWords[i];
-        var word = taggedWord[0];
-        var tag = taggedWord[1];
+        var taggedWord = taggedWords[i],
+            word = taggedWord[0],
+            tag = taggedWord[1];
 
         if(tag == 'NN' || tag == 'NNS') {
             if(tag == 'NNS') {
@@ -26,20 +25,20 @@ function getNounCount (text) {
     return commonNouns;
 }
 
-function wordCount (arr) {
+function getNounCount (arr) {
     var wc = [];
     var text = arr.join(' ');
-    text += ' feature feature feature';
-    log('Text: ' + text);
     
     while(text) {
-        var words = text.split(' ');
+        var words = text.split(' '),
+            word = '';
         for (var i in words) {
-            if (words[i] !== '') {
+            if (words[i] !== '' && words[i] !== ' ') {
                 word = words[i];
                 break;
             }
         }
+        if(word == '') break; // No more nouns left
         var count = 0;
         var reg = new RegExp(word, 'g');
         var myArray;
@@ -57,8 +56,8 @@ function wordCount (arr) {
         text = text.replace(reg, '');
         text = text.replace(' ', '');
     }
-
-    log(wc);
+    return wc;
 }
 
-wordCount(getNounCount('Like many of the other features, String can be patched to perform the operations directly. The "Noun" suffix on the methods is necessary, as verbs will be supported in the'));
+exports.getNounCount = getNounCount;
+exports.getCommonNouns = getCommonNouns;
