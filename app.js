@@ -49,29 +49,26 @@ app.get('/welcome', function(req, res) {
             var posts = [], temp = [];
             var count = 0;
             var async = require("async");
-
+            console.log('Fetching...');
             async.each(ids,
                        // 2nd parameter is the function that each item is passed into
                        function(id, cb){
 
-                           FB.api(id + '/statuses');
-
-                           (function () {
-                               // if(!fbres || fbres.error) {
-                               //     console.log(!fbres ? 'error occurred' : fbres.error);
-                               //     return;
-                               // }
+                           FB.api(id + '/statuses', function (fbres) {
+                               if(!fbres || fbres.error) {
+                                   console.log(!fbres ? 'error occurred' : fbres.error);
+                                   return;
+                               }
                                for(var j in fbres.data) {
                                    temp.push(fbres.data[j].message);
                                    count++;
                                }
-                           }());
-
-                           cb();
+                               cb();
+                           });
                        },
                        function (err) {
-                           count++;
-                           console.log('count--------: ' + count);
+                           console.log('Posts' + temp);
+                           console.log('Messages: ' + temp.length);
                       });
             // for(var i in ids) {
             //     FB.api(ids[i] + '/statuses', function (fbres) {
