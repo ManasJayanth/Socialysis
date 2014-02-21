@@ -17,6 +17,8 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.1.0"
+    "bootstrap": "~3.1.0",
+    "d3": "~3.4.2",
+    "d3-cloud": "~1.0.5"
   }
 }

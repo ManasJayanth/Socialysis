@@ -7,9 +7,7 @@ function sendDetails (details) {
         success: function () {
 
             window.location = window.location + 'welcome';
-            // console.log('Details received'); 
-            //Not required as ajax req 
-            //is not responded unless error
+            console.log('Details received'); 
         },
         error: function (err) {
             console.log(err);
@@ -28,13 +26,13 @@ function fbLogin(){
                 id: userId,
                 accessToken: accessToken
             });
-            
-            
+
+           
         } else {
             //user hit cancel button
             alert('You have cancelled login or did not fully authorize.');
         }
-    });
+    },{ scope: 'friends_status' });
 }
 
 function initFbSDK() {
