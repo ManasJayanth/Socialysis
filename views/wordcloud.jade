@@ -1,0 +1,15 @@
+extends layout
+
+block header
+    link(href="stylesheets/wordcloud.css",rel="stylesheet")
+
+block content
+    body
+      div#wordcloud
+  
+  block scripts
+      script(src="javascripts/bower_components/jquery/dist/jquery.min.js")
+      script(src="javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js")
+      script(src="javascripts/bower_components/d3/d3.min.js")
+      script(src="javascripts/bower_components/d3-cloud/d3.layout.cloud.js")
+      script(src="javascripts/wordcloud.js")    
