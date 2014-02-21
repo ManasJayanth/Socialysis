@@ -12,6 +12,10 @@ exports.profile = function (req, res, FB) {
     } else {
         FB.setAccessToken(req.session.accessToken);
         var that = this;
+        /** 
+         * Note instead of /me, /this.id has been used as explained here
+         * http://stackoverflow.com/questions/11230747/facebook-php-sdk-3-issue-in-access-token
+         */
         FB.api('/' + this.id + '/picture?redirect=0&height=400&type=normal&width',
                function (fbres) {
                    if(!fbres || fbres.error) {
