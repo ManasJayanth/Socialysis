@@ -87,7 +87,7 @@ app.get('/wordcloud', function(req, res) {
             // }
 
         });
-        res.render('dashboard');
+        res.render('wordcloud');
     } else {
         res.redirect('/');
     }
