@@ -32,7 +32,10 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.post('/authentication', user.login);
-app.get('/welcome', function(req, res) {
+app.get('/welcome', function (req, res) {
+    user.profile(req, res, FB);
+});
+app.get('/wordcloud', function(req, res) {
 
     if(req.session.loggedIn == true) {
 
@@ -84,11 +87,11 @@ app.get('/welcome', function(req, res) {
             // }
 
         });
-        res.render('dashboard');
+        res.render('wordcloud');
     } else {
         res.redirect('/');
     }
-})
+});
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
