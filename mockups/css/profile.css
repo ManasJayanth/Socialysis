@@ -32,6 +32,15 @@ header a {
   margin: 1% 0.5%;
   float: left;
 }
+#dp .cover {
+  width: 100%;
+}
+#dp .dp {
+  position: relative;
+  margin-top: -55%;
+  left: 35%;
+  width: 30%;
+}
 #banner {
   width: 73.11%;
   margin: 1% 0.5%;
