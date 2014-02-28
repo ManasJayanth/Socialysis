@@ -1,0 +1,12 @@
+  extends layout
+
+block header
+    link(href="stylesheets/wordcloud.css",rel="stylesheet")
+
+block content
+    body
+      img(src= url, alt='image')
+  
+  block scripts
+      script(src="javascripts/bower_components/jquery/dist/jquery.min.js")
+      script(src="javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js")

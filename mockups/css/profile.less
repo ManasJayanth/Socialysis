@@ -1,0 +1,102 @@
+/* Theme: https://kuler.adobe.com/Exciting-color-theme-1842724/ */
+@color1: #242D33;
+@color2: #576363;
+@color3: #0B2229;
+@color4: #E8D8B5;
+@color5: #992849;
+
+@golden1: 38.197%;
+@golden2: 61.803%;
+
+
+/* Mixins */
+.margins() {
+    margin: 1% 0.5%;
+}    
+.margins-head() {
+    margin: 0.5% 0.25%;
+}    
+
+/* Styles */
+body {
+     padding: 0px;
+}
+
+header.col-xs-12 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: @color1;
+    padding: 0px;
+}
+
+header.col-xs-12  h1 {
+    font-size: 1.5em; //1em = 12pt = 16px = 100%
+    color : @color4;
+    .margins-head;
+}
+
+header.col-xs-12  div {
+    .margins-head;
+    line-height: 1.5em;
+    font-size: 1em;
+}
+
+header a {
+    color : @color4;
+}
+.container {
+    margin-top: 34px;
+}
+
+#dp {
+    width: 24.89%;
+    .margins;
+    float: left;
+}
+
+#banner {
+    width: 73.11%;
+    .margins;
+    float: right;
+}
+
+#banner h2 {
+    font-size: 2em;
+    font-weight: bold;
+    float: left;
+    padding: 1%;
+    .margins;
+}
+
+#banner h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    float: right;
+    padding: 1.2%;
+    .margins;
+}
+
+#banner ul {
+    padding: 5% 2%;
+    list-style-type: none;
+    line-height: 2em;
+    clear:both;
+}
+
+#dp img, #banner img {
+    width: 100%;
+}
+
+
+#friendbox {
+    width: 24.89%;
+    clear: both;
+    .margins;
+}
+
+#friendbox h3 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;
+}

@@ -1,0 +1,73 @@
+/* Theme: https://kuler.adobe.com/Exciting-color-theme-1842724/ */
+/* Mixins */
+/* Styles */
+body {
+  padding: 0px;
+}
+header.col-xs-12 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #242d33;
+  padding: 0px;
+}
+header.col-xs-12 h1 {
+  font-size: 1.5em;
+  color: #e8d8b5;
+  margin: 0.5% 0.25%;
+}
+header.col-xs-12 div {
+  margin: 0.5% 0.25%;
+  line-height: 1.5em;
+  font-size: 1em;
+}
+header a {
+  color: #e8d8b5;
+}
+.container {
+  margin-top: 34px;
+}
+#dp {
+  width: 24.89%;
+  margin: 1% 0.5%;
+  float: left;
+}
+#banner {
+  width: 73.11%;
+  margin: 1% 0.5%;
+  float: right;
+}
+#banner h2 {
+  font-size: 2em;
+  font-weight: bold;
+  float: left;
+  padding: 1%;
+  margin: 1% 0.5%;
+}
+#banner h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  float: right;
+  padding: 1.2%;
+  margin: 1% 0.5%;
+}
+#banner ul {
+  padding: 5% 2%;
+  list-style-type: none;
+  line-height: 2em;
+  clear: both;
+}
+#dp img,
+#banner img {
+  width: 100%;
+}
+#friendbox {
+  width: 24.89%;
+  clear: both;
+  margin: 1% 0.5%;
+}
+#friendbox h3 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2em;
+}
