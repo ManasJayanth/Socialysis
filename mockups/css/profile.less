@@ -46,67 +46,52 @@ header a {
     color : @color4;
 }
 .container {
-    margin-top: 34px;
+    margin-top: 2.5%;
 }
 
-
+.left {
+    width: 24.89%;
+    float: left;
+    .margins;
+    padding-right: 1%;
+    border-right: 1px solid @color1;
+}
 //------ Display Pic ------ //
 #dp {
-    width: 24.89%;
-    .margins;
-    float: left;
 }
 #dp .cover {
     width: 100%;
 }
+
 #dp .dp {
     position: relative;
     margin-top: -55%;
     left: 35%;
     width: 30%;
 }
-#banner {
-    width: 73.11%;
-    .margins;
-    float: right;
-}
 
-#banner h2 {
-    font-size: 2em;
-    font-weight: bold;
-    float: left;
-    padding: 1%;
-    .margins;
-}
-
-#banner h3 {
-    font-size: 1.2em;
-    font-weight: bold;
-    float: right;
-    padding: 1.2%;
-    .margins;
-}
-
-#banner ul {
-    padding: 5% 2%;
-    list-style-type: none;
-    line-height: 2em;
-    clear:both;
-}
-
-#dp img, #banner img {
+#dp img {
     width: 100%;
 }
 
-
-#friendbox {
-    width: 24.89%;
-    clear: both;
-    .margins;
+#name h3,
+#name h4 {
+    margin: 0px;
+    text-align: center;
 }
 
-#friendbox h3 {
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.2em;
+#last-activity {
+    margin-top: 10%;
+}
+
+#last-activity h5 { 
+    padding: 2%;
+    background-color: @color1;
+    color: @color4;
+}
+
+#last-activity #time{
+    text-align: right;
+    font-style: italic;
+    font-size: 0.8em
 }

@@ -25,12 +25,14 @@ header a {
   color: #e8d8b5;
 }
 .container {
-  margin-top: 34px;
+  margin-top: 2.5%;
 }
-#dp {
+.left {
   width: 24.89%;
-  margin: 1% 0.5%;
   float: left;
+  margin: 1% 0.5%;
+  padding-right: 1%;
+  border-right: 1px solid #242d33;
 }
 #dp .cover {
   width: 100%;
@@ -41,42 +43,24 @@ header a {
   left: 35%;
   width: 30%;
 }
-#banner {
-  width: 73.11%;
-  margin: 1% 0.5%;
-  float: right;
-}
-#banner h2 {
-  font-size: 2em;
-  font-weight: bold;
-  float: left;
-  padding: 1%;
-  margin: 1% 0.5%;
-}
-#banner h3 {
-  font-size: 1.2em;
-  font-weight: bold;
-  float: right;
-  padding: 1.2%;
-  margin: 1% 0.5%;
-}
-#banner ul {
-  padding: 5% 2%;
-  list-style-type: none;
-  line-height: 2em;
-  clear: both;
-}
-#dp img,
-#banner img {
+#dp img {
   width: 100%;
 }
-#friendbox {
-  width: 24.89%;
-  clear: both;
-  margin: 1% 0.5%;
-}
-#friendbox h3 {
-  font-weight: bold;
+#name h3,
+#name h4 {
+  margin: 0px;
   text-align: center;
-  font-size: 1.2em;
+}
+#last-activity {
+  margin-top: 10%;
+}
+#last-activity h5 {
+  padding: 2%;
+  background-color: #242d33;
+  color: #e8d8b5;
+}
+#last-activity #time {
+  text-align: right;
+  font-style: italic;
+  font-size: 0.8em;
 }
