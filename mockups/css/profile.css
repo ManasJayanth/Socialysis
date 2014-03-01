@@ -71,12 +71,9 @@ header a {
   padding-left: 1.5%;
   width: 74.11%;
 }
-.right h2 {
-  border-radius: 5px;
-  background-color: #242d33;
-  color: #e8d8b5;
+.right h2,
+.right p {
   text-align: center;
-  padding: 0.5%;
 }
 .mask img {
   border-radius: 5px;
