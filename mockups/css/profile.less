@@ -15,7 +15,10 @@
 }    
 .margins-head() {
     margin: 0.5% 0.25%;
-}    
+}
+.boxes() {
+    border-radius: 5px;
+}
 
 /* Styles */
 body {
@@ -50,6 +53,7 @@ header a {
 }
 
 .left {
+    height: 100%;
     width: 24.89%;
     float: left;
     .margins;
@@ -85,6 +89,7 @@ header a {
 }
 
 #last-activity h5 { 
+    .boxes;
     padding: 2%;
     background-color: @color1;
     color: @color4;
@@ -94,4 +99,34 @@ header a {
     text-align: right;
     font-style: italic;
     font-size: 0.8em
+}
+
+.right {
+    width: 74.11%;
+    float: right;
+}
+
+.right h2 {
+    .boxes;
+    margin-top: 1.5%;
+    margin-left: 0.75%;
+    background-color: @color1;
+    color: @color4;
+    text-align: center;
+    padding: 0.5%;
+}
+
+.chart-thumbnail .caption {
+  position: relative;
+  left: 0;
+  bottom: 60px;
+  width: 100%;
+  padding: 10px 20px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  // filter: progid:DXImageTransform.Microsoft.gradient
+  //         (startcolorstr=#7F000000,endcolorstr=#7F000000) 9;
+}
+.container .clear-fix {
+    clear: both;
 }
