@@ -1,12 +1,25 @@
 extends layout
 
 block header
-    link(href="stylesheets/wordcloud.css",rel="stylesheet")
-
+    link(href="stylesheets/dashboard.css",rel="stylesheet")
 block content
-    body
-      img(src= url, alt='image')
-  
-  block scripts
-      script(src="javascripts/bower_components/jquery/dist/jquery.min.js")
-      script(src="javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js")
+  body
+    header.col-xs-12
+      h1.pull-left Socialysis
+      div.pull-right
+        a Log Out
+    div.container.col-xs-12
+      div.col-xs-3.left
+        div#user-info
+        div#last-activity
+      div.col-xs-9.right
+        div.row.dashboard-title
+          h2 Dashboard
+          p (Click on a chart to see some analytics)
+          hr
+        div#dashboard-space
+block scripts
+  script(src="javascripts/bower_components/jquery/dist/jquery.min.js")
+  script(src="javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js")
+  script(data-main='javascripts/boot', type="text/javascript",
+    src='javascripts/bower_components/requirejs/require.js')  

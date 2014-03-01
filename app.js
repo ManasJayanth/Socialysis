@@ -32,7 +32,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.post('/authentication', user.login);
-app.get('/welcome', function (req, res) {
+app.get('/dashboard', function (req, res) {
     user.profile(req, res, FB);
 });
 app.get('/wordcloud', function(req, res) {

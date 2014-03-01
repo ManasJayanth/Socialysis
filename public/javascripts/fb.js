@@ -6,7 +6,7 @@ function sendDetails (details) {
         data: details,
         success: function () {
 
-            window.location = window.location + 'welcome';
+            window.location = window.location + 'dashboard';
             console.log('Details received'); 
         },
         error: function (err) {
