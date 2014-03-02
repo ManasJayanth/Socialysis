@@ -107,3 +107,11 @@ div.caption a {
   left: 0;
   top: 0;
 }
+#wordcloud {
+    margin: auto;
+    width: 600px;
+}
+#wordcloud img {
+    display: block;
+    margin: auto;
+}
