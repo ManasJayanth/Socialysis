@@ -35,7 +35,7 @@ app.post('/authentication', user.login);
 app.get('/dashboard', function (req, res) {
     user.profile(req, res, FB);
 });
-app.get('/wordcloud', function(req, res) {
+app.get('/dashboard/wordcloud', function(req, res) {
 
     if(req.session.loggedIn == true) {
 
@@ -87,7 +87,7 @@ app.get('/wordcloud', function(req, res) {
             // }
 
         });
-        res.render('wordcloud');
+        res.render('dashboard');
     } else {
         res.redirect('/');
     }

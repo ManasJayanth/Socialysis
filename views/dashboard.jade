@@ -1,7 +1,7 @@
 extends layout
 
 block header
-    link(href="stylesheets/dashboard.css",rel="stylesheet")
+    link(href="/stylesheets/dashboard.css",rel="stylesheet")
 block content
   body
     header.col-xs-12
@@ -19,7 +19,7 @@ block content
           hr
         div#dashboard-space
 block scripts
-  script(src="javascripts/bower_components/jquery/dist/jquery.min.js")
-  script(src="javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js")
-  script(data-main='javascripts/boot', type="text/javascript",
-    src='javascripts/bower_components/requirejs/require.js')  
+  script(src="/javascripts/bower_components/jquery/dist/jquery.min.js")
+  script(src="/javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js")
+  script(data-main='/javascripts/boot', type="text/javascript",
+    src='/javascripts/bower_components/requirejs/require.js')  

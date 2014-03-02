@@ -17,13 +17,13 @@ function getCommonNouns (text) {
             word = taggedWord[0],
             tag = taggedWord[1];
 
-        if(tag === 'VB') {// || tag === 'NNS') {
-            // if(tag == 'NNS') {
-            //     commonNouns.push(nounInflector.singularize(word));
-            // } else {
-            //     commonNouns.push(word);
-            // }
-            commonNouns.push(word);
+        if(tag === 'NN' || tag === 'NNS') {
+            if(tag == 'NNS') {
+                commonNouns.push(nounInflector.singularize(word));
+            } else {
+                commonNouns.push(word);
+            }
+//            commonNouns.push(word);
         }
     }
 
@@ -54,7 +54,7 @@ function getNounCount (arr) {
         var match, matchcount = 0;
         while ((match = reg.exec(text)) !== null)
         {
-            var msg = "Found " + match + ".  ";
+            var msg = " -- " + match + " -- ";
             matchcount++;
             console.log(msg);
         }
