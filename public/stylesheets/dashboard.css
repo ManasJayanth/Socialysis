@@ -39,15 +39,7 @@ header a {
   padding-right: 1%;
   border-right: 1px solid #ffffff;
 }
-#dp .cover {
-  width: 100%;
-}
-#dp .dp {
-  position: relative;
-  margin-top: -55%;
-  left: 35%;
-  width: 30%;
-}
+#dp,
 #dp img {
   width: 100%;
 }

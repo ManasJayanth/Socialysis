@@ -73,24 +73,15 @@ app.get('/dashboard/wordcloud', function(req, res) {
                            var text = temp.join(' ');
                            wordcloud.createJSON(text);
                       });
-            // for(var i in ids) {
-            //     FB.api(ids[i] + '/statuses', function (fbres) {
-            //         if(!fbres || fbres.error) {
-            //             console.log(!fbres ? 'error occurred' : fbres.error);
-            //             return;
-            //         }
-            //         for(var j in fbres.data) {
-            //             temp.push(fbres.data[j].message);
-            //             console.log(fbres.data[j].message);
-            //         }
-            //     });
-            // }
-
         });
         res.render('dashboard');
     } else {
         res.redirect('/');
     }
+});
+
+app.get('/user-info', function (req, res) {
+    user.getInfo(req, res, FB);
 });
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
