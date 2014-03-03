@@ -9,21 +9,24 @@ header.col-xs-12 {
   top: 0;
   left: 0;
   z-index: 999;
-  background-color: #242d33;
+  background-color: #ffffff;
   padding: 0px;
+  border-radius: 5px;
+  border: 1px solid gray;
 }
 header.col-xs-12 h1 {
   font-size: 1.5em;
-  color: #e8d8b5;
+  color: #000000;
   margin: 0.5% 0.25%;
 }
 header.col-xs-12 div {
   margin: 0.5% 0.25%;
   line-height: 1.5em;
   font-size: 1em;
+  margin-left: 2%;
 }
 header a {
-  color: #e8d8b5;
+  color: #000000;
 }
 .container {
   margin-top: 3%;
@@ -34,7 +37,7 @@ header a {
   float: left;
   margin: 1% 0.5%;
   padding-right: 1%;
-  border-right: 1px solid #242d33;
+  border-right: 1px solid #ffffff;
 }
 #dp .cover {
   width: 100%;
@@ -58,9 +61,10 @@ header a {
 }
 #last-activity h5 {
   border-radius: 5px;
+  border: 1px solid gray;
   padding: 2%;
-  background-color: #242d33;
-  color: #e8d8b5;
+  background-color: #ffffff;
+  color: #000000;
 }
 #last-activity #time {
   text-align: right;
@@ -77,9 +81,11 @@ header a {
 }
 .mask img {
   border-radius: 5px;
+  border: 1px solid gray;
 }
 .caption {
   border-radius: 5px;
+  border: 1px solid gray;
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   margin: 0 3.5%;
@@ -106,4 +112,12 @@ div.caption a {
   position: absolute;
   left: 0;
   top: 0;
+}
+#wordcloud {
+  margin: auto;
+  width: 600px;
+}
+#wordcloud img {
+  display: block;
+  margin: auto;
 }

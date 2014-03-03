@@ -1,9 +1,13 @@
 /* Theme: https://kuler.adobe.com/Exciting-color-theme-1842724/ */
-@color1: #242D33;
-@color2: #576363;
-@color3: #0B2229;
-@color4: #E8D8B5;
-@color5: #992849;
+
+@color1: white;
+@color4: black;
+
+// @color1: #242D33;
+// @color2: #576363;
+// @color3: #0B2229;
+// @color4: #E8D8B5;
+// @color5: #992849;
 
 @golden1: 38.197%;
 @golden2: 61.803%;
@@ -18,6 +22,7 @@
 }
 .boxes() {
     border-radius: 5px;
+    border: 1px solid gray;
 }
 
 /* Styles */
@@ -32,6 +37,7 @@ header.col-xs-12 {
     z-index: 999;
     background-color: @color1;
     padding: 0px;
+    .boxes;
 }
 
 header.col-xs-12  h1 {
@@ -44,6 +50,7 @@ header.col-xs-12  div {
     .margins-head;
     line-height: 1.5em;
     font-size: 1em;
+    margin-left: 2%;
 }
 
 header a {
