@@ -1,5 +1,7 @@
+//Make a list of words: 're'
 var pos = require('pos'),
-    natural = require('natural');
+    natural = require('natural'),
+    nounFilter = require('./noun-filter');
 
 function getCommonNouns (text) {
 
@@ -7,7 +9,8 @@ function getCommonNouns (text) {
         nounInflector = new natural.NounInflector(),
         tokenizer = new natural.WordTokenizer();
     
-    words = tokenizer.tokenize(text);
+    words = nounFilter.returnOnlyNouns(tokenizer.tokenize(text));
+    ///console.log(words);
 
 //        words = new pos.Lexer().lex(text),
         taggedWords = new pos.Tagger().tag(words);
@@ -27,10 +30,29 @@ function getCommonNouns (text) {
         }
     }
 
+  //  console.log(commonNouns);
+
     return commonNouns;
 }
 
 function getNounCount (arr) {
+    function diversify() {
+        var nouns = wc.map(function (d) {
+            return d.word;
+        });
+        nouns = nounFilter.returnOnlyNouns(nouns);
+        wc = wc.map(function(d) {
+            if (nouns.indexOf(d.word) !== -1) {
+                console.log("--" + d.word);
+                return d;
+            } else {
+                return {
+                    word: '',
+                    count: 0
+                }
+            }
+        });
+    }
     var wc = [];
     var text = arr.join(' ');
     text = text.replace(/[^a-zA-Z ]/g, '');
@@ -38,6 +60,8 @@ function getNounCount (arr) {
     while(text) {
         var words = text.split(' '),
             word = '';
+
+
         for (var i in words) {
             if (words[i] !== '' && words[i] !== ' ') {
                 word = words[i];
@@ -48,6 +72,7 @@ function getNounCount (arr) {
         var count = 0;
         try {
             var reg = new RegExp(word, 'g');
+//            console.log(reg);
         } catch (err) {
         }
         var myArray;
@@ -56,7 +81,7 @@ function getNounCount (arr) {
         {
             var msg = " -- " + match + " -- ";
             matchcount++;
-            console.log(msg);
+//            console.log(msg);
         }
         wc.push({
             word: word,
@@ -65,6 +90,7 @@ function getNounCount (arr) {
         text = text.replace(reg, '');
         text = text.replace(' ', '');
     }
+    diversify();
     return wc;
 }
 
