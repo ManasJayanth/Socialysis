@@ -11,8 +11,7 @@ module.exports = function(grunt) {
             options: {
                 jshintrc:true
             },
-            all: ['Gruntfile.js', '<%= jsSrcRoot %>/*.js',
-                  '<%= jsSrcPath %>/*.js']
+            all: ['Gruntfile.js', 'app.js']
         },
         
         clean: {
