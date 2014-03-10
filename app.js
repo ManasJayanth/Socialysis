@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+    app.use(express.errorHandler());
 }
 
 app.get('/', routes.index);
@@ -44,7 +44,7 @@ app.get('/dashboard', function (req, res) {
 });
 app.get('/dashboard/wordcloud', function(req, res) {
 
-    if(req.session.loggedIn == true) {
+    if(req.session.loggedIn === true) {
 
         FB.setAccessToken( req.session.accessToken);
         FB.api('me/friends', function (fbres) {
@@ -79,7 +79,7 @@ app.get('/dashboard/wordcloud', function(req, res) {
                        function (err) {
                            var text = temp.join(' ');
                            wordcloud.createJSON(text);
-                      });
+                       });
         });
         res.render('dashboard');
     } else {
