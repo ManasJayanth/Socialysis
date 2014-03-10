@@ -34,8 +34,10 @@ exports.getInfo = function (req, res, FB) {
     if(!req.session.loggedIn) {
         res.send(400);
     } else {
+        FB.setAccessToken(req.session.accessToken);
         FB.api('/me', function (fbres) {
             if(!fbres || fbres.error) {
+                console.log('trapped');
                 console.log(!fbres ? 'error occurred' : fbres.error);
                 return;
             }
@@ -54,4 +56,11 @@ exports.getInfo = function (req, res, FB) {
                });
         });
     }
+};
+
+exports.logout = function (req, res) {
+    req.session.fbid = '';
+    req.session.accessToken = '';
+    req.session.loggedIn = false;
+    res.redirect('/');
 };

@@ -32,6 +32,13 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.post('/authentication', user.login);
+app.get('/authentication', function (req, res) {
+    if(req.session.loggedIn) {
+        res.send(200);
+    } else {
+        res.send(400);
+    }
+});
 app.get('/dashboard', function (req, res) {
     user.profile(req, res, FB);
 });
@@ -79,10 +86,10 @@ app.get('/dashboard/wordcloud', function(req, res) {
         res.redirect('/');
     }
 });
-
+app.post('/logout', user.logout);
 app.get('/user-info', function (req, res) {
     user.getInfo(req, res, FB);
 });
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+    console.log('Express server listening on port ' + app.get('port'));
 });

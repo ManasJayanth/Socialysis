@@ -2,25 +2,10 @@ extends layout
 
 block header
     link(href="stylesheets/home-index.css",rel="stylesheet")
-
+    link(href="stylesheets/dashboard.css",rel="stylesheet")
 block content
   body
-    div#fb-root
-    div.container-fluid
-
-      header
-        h1 Socialysis
-
-      div.col-xs-6.site-intro
-        p
-          | Socialysis is a visualization tool to know your social connections better
-
-      div.col-xs-6.signin
-        h2 Sign In
-        button.btn.btn-default#signin(type="submit") Login with Facebook
-
 
 block scripts
-    script(src="javascripts/bower_components/jquery/dist/jquery.min.js")
-    script(src="javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js")
-    script(src="javascripts/fb.js")
+    script(data-main='/javascripts/boot', type="text/javascript",
+    src='/javascripts/bower_components/requirejs/require.js')  

@@ -1,7 +1,8 @@
 define(['Backbone','text!templates/thumbnails.html'], function (Backbone, thumbnailsTempl) {
     var ThumbnailsView = Backbone.View.extend({
-        el: '#dashboard-space',
+        id: '#dashboard-space',
         render: function() {
+            this.$el = $(this.id);
             this.$el.html(thumbnailsTempl);
         }
     });
