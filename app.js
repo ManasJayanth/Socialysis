@@ -1,7 +1,6 @@
 /**
  * Module dependencies.
  */
-
 var express = require('express');
 var routes = require('./routes');
 var user = require('./models/user');
@@ -26,70 +25,17 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
-if ('development' == app.get('env')) {
+if ('development' === app.get('env')) {
     app.use(express.errorHandler());
 }
 
 app.get('/', routes.index);
 app.post('/authentication', user.login);
-app.get('/authentication', function (req, res) {
-    if(req.session.loggedIn) {
-        res.send(200);
-    } else {
-        res.send(400);
-    }
-});
-app.get('/dashboard', function (req, res) {
-    user.profile(req, res, FB);
-});
-app.get('/dashboard/wordcloud', function(req, res) {
-
-    if(req.session.loggedIn === true) {
-
-        FB.setAccessToken( req.session.accessToken);
-        FB.api('me/friends', function (fbres) {
-            if(!fbres || fbres.error) {
-                console.log(!fbres ? 'error occurred' : fbres.error);
-                return;
-            }
-            var ids = [];
-            for(var i = 0; i < fbres.data.length && i < 50; ++i) {
-                ids.push(fbres.data[i].id);
-            }
-            var posts = [], temp = [];
-            var count = 0;
-            var async = require("async");
-            console.log('Fetching...');
-            async.each(ids,
-                       // 2nd parameter is the function that each item is passed into
-                       function(id, cb){
-
-                           FB.api(id + '/statuses', function (fbres) {
-                               if(!fbres || fbres.error) {
-                                   console.log(!fbres ? 'error occurred' : fbres.error);
-                                   return;
-                               }
-                               for(var j in fbres.data) {
-                                   temp.push(fbres.data[j].message);
-                                   count++;
-                               }
-                               cb();
-                           });
-                       },
-                       function (err) {
-                           var text = temp.join(' ');
-                           wordcloud.createJSON(text);
-                       });
-        });
-        res.render('dashboard');
-    } else {
-        res.redirect('/');
-    }
-});
+app.get('/authentication', user.checkLogin);
 app.post('/logout', user.logout);
-app.get('/user-info', function (req, res) {
-    user.getInfo(req, res, FB);
-});
+app.get('/wordcloud-data', user.getWordCloudData);
+app.get('/user-info', user.getInfo);
+
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
