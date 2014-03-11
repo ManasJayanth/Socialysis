@@ -7,7 +7,6 @@ var user = require('./models/user');
 var http = require('http');
 var path = require('path');
 var FB = require('fb');
-var wordcloud = require('./modules/wordcloud');
 var app = express();
 
 // all environments
