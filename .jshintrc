@@ -11,8 +11,11 @@
                  "PykTwoD": true,
                  "console": false,
                  "alert": false,
-                 "d3": false,
-                 "$":false
+                 "d3": true,
+                 "$": false,
+                 "Backbone": false,
+                 "window": false,
+                 "define": false
                 },
     "indent": 4,
     "camelcase": true,

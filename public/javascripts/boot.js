@@ -11,8 +11,7 @@ require.config({
 
     shim: {
         'Backbone': {
-            deps: ['Underscore', 'jQuery'],
-            exports: 'Backbone'
+            deps: ['Underscore', 'jQuery']
         },
         'Socialysis': ['Backbone'],
         'd3Cloud': {
@@ -27,10 +26,9 @@ require.config({
 
 /** Hack for Non AMD modules dependending on D3 */
 define("d3.global", ["d3"], function(_) {
-  d3 = _;
+    d3 = _;
 });
 
 require(['Socialysis'], function(Socialysis) {
     Socialysis.initialize();
 });
-

@@ -1,12 +1,12 @@
-var dependencies = ['Backbone', 
+var dependencies = ['Backbone',
                     'views/UserInfoView',
                     'views/LoginView',
                     'views/LastActivityView',
                     'views/DashboardSpaceView',
                     'views/WordCloudView',
                     'text!templates/dashboard-template.html'];
-function defineModule (Backbone, userInfoView, loginView, lastActivityView, dashboardSpaceView,
-                       wordCloudView, dashboardTempl) {
+function defineModule (Backbone, userInfoView, loginView, lastActivityView,
+                       dashboardSpaceView, wordCloudView, dashboardTempl) {
 
     var Router = Backbone.Router.extend({
         initialize: function () {

@@ -1,4 +1,9 @@
 /* jslint node: true */
+
+var FILENAME = 'modules/empathy.js',
+    ALL_JAVASCRIPT_FILES = ['Gruntfile.js', '*/*.js',
+                            'public/javascripts/*.js'];
+
 module.exports = function(grunt) {
 
     'use strict';
@@ -11,7 +16,7 @@ module.exports = function(grunt) {
             options: {
                 jshintrc:true
             },
-            all: ['Gruntfile.js', 'app.js']
+            all: ALL_JAVASCRIPT_FILES
         },
         
         clean: {
@@ -28,13 +33,30 @@ module.exports = function(grunt) {
             rmclogs: {
                 // Run the script
                 command: 'bash pre-build/script.bash'
+            },
+            lintIt: {
+                command: 'jshint ' + FILENAME,
+                options: {
+                    stdout: true
+                }
             }
+        },
+        
+        watch: {
+            scripts: {
+                files: ALL_JAVASCRIPT_FILES,
+                tasks: ['jshint'],
+                options: {
+                    spawn: false
+                },
+            },
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
  
     // Clean the .git/hooks/pre-commit file then copy in the latest version
     grunt.registerTask('hookmeup', ['clean:hooks', 'shell:hooks']);
