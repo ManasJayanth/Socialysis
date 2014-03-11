@@ -3,7 +3,7 @@ define(['Router'], function (Router) {
         initialize: function () {
             Backbone.history.start();
             $.get('/authentication', function () {
-                Backbone.history.navigate('dashboard', {trigger: true});
+                Backbone.history.navigate(window.location.hash, {trigger: true});
             })
             .fail(function () {
                 Backbone.history.navigate('', {trigger: true});

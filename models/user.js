@@ -1,4 +1,6 @@
 var FB = require('fb');
+var wordcloud = require('../modules/wordcloud');
+
 exports.id = '';
 exports.login = function (req, res) {
     req.session.fbid = req.body.id;
@@ -87,8 +89,8 @@ exports.getWordCloudData = function(req, res) {
             }
             async.each(ids, iterator, createJSON);
         });
-        res.render('dashboard');
+        res.json({data: 666, msg: 'The number of the beast'});
     } else {
-        res.redirect('/');
+        res.send(400);
     }
 };

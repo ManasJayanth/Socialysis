@@ -13,11 +13,13 @@ define(['Backbone', 'text!templates/user-info.html'], function (Backbone, userIn
         },
         render: function() {
             this.$el = $(this.id);
+            this.$el.html(_.template(userInfoTempl, { model: this.model}));
+        },
+        updateModel: function () {
             this.model.fetch({
                 success: function (model, res, options) {
                 }
             });
-            this.$el.html(_.template(userInfoTempl, { model: this.model}));
         }
     });
 
