@@ -11,3 +11,12 @@ Install bower components by changing the `cwd` to public/javascripts and issuing
     bower install
 
 
+## Developer installation
+In addition to the above, install `git-hooks` by issuing the following:
+
+    chmod a+x git-hooks/pre-commit
+
+Then,
+
+    grunt hookmeup
+
