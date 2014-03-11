@@ -7,30 +7,23 @@ function getCommonNouns (text) {
 
     var commonNouns = [],
         nounInflector = new natural.NounInflector(),
-        tokenizer = new natural.WordTokenizer();
-    
-    words = nounFilter.returnOnlyNouns(tokenizer.tokenize(text));
-    ///console.log(words);
-
-//        words = new pos.Lexer().lex(text),
+        tokenizer = new natural.WordTokenizer(),
+        words = nounFilter.returnOnlyNouns(tokenizer.tokenize(text)),
         taggedWords = new pos.Tagger().tag(words);
     
-    for (i in taggedWords) {
+    for (var i in taggedWords) {
         var taggedWord = taggedWords[i],
             word = taggedWord[0],
             tag = taggedWord[1];
 
         if(tag === 'NN' || tag === 'NNS') {
-            if(tag == 'NNS') {
+            if(tag === 'NNS') {
                 commonNouns.push(nounInflector.singularize(word));
             } else {
                 commonNouns.push(word);
             }
-//            commonNouns.push(word);
         }
     }
-
-  //  console.log(commonNouns);
 
     return commonNouns;
 }
@@ -49,7 +42,7 @@ function getNounCount (arr) {
                 return {
                     word: '',
                     count: 0
-                }
+                };
             }
         });
     }
@@ -68,12 +61,15 @@ function getNounCount (arr) {
                 break;
             }
         }
-        if(word == '') break; // No more nouns left
+        if(word === '') {
+            break; // No more nouns left
+        }
         var count = 0;
+        var reg;
         try {
-            var reg = new RegExp(word, 'g');
-//            console.log(reg);
+            reg = new RegExp(word, 'g');
         } catch (err) {
+            // Ignore the thrown exception
         }
         var myArray;
         var match, matchcount = 0;
@@ -81,7 +77,6 @@ function getNounCount (arr) {
         {
             var msg = " -- " + match + " -- ";
             matchcount++;
-//            console.log(msg);
         }
         wc.push({
             word: word,

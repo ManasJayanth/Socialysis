@@ -23,7 +23,9 @@ module.exports = function(grunt) {
         },
         shell: {
             copyCSS: {
-                command: 'cp css/profile.css ../public/stylesheets/dashboard-test.css',
+                command:
+                'cp css/profile.css ../public/stylesheets/dashboard-test.css',
+                
                 options: {
                     stdout: true
                 }

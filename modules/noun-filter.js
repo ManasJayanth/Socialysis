@@ -10,7 +10,7 @@ function returnOnlyNouns (wordlist) {
         }
     }
     return nouns;
-}    
+}
 
 
 exports.returnOnlyNouns = returnOnlyNouns;

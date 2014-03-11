@@ -21,18 +21,21 @@ exports.getInfo = function (req, res) {
                 return;
             }
             var name = fbres.name;
+            
             /* Getting profile pic */
-            FB.api('/' + req.session.fbid + '/picture?redirect=0&height=400&type=normal&width',
-               function (fbres) {
-                   if(!fbres || fbres.error) {
-                       console.log(!fbres ? 'error occurred' : fbres.error);
-                       return;
-                   }
-                   res.json({
-                       name: name,
-                       dp: fbres.data.url
-                   });
-               });
+            function fbProfilePicCallback (fbres) {
+                if(!fbres || fbres.error) {
+                    console.log(!fbres ? 'error occurred' : fbres.error);
+                    return;
+                }
+                res.json({
+                    name: name,
+                    dp: fbres.data.url
+                });
+            }
+            var graphQuery = '/' + req.session.fbid +
+                    '/picture?redirect=0&height=400&type=normal&width';
+            FB.api(graphQuery, fbProfilePicCallback);
         });
     }
 };
@@ -43,7 +46,8 @@ exports.logout = function (req, res) {
     req.session.loggedIn = false;
     res.redirect('/');
 };
- exports.checkLogin = function (req, res) {
+
+exports.checkLogin = function (req, res) {
     if(req.session.loggedIn) {
         res.send(200);
     } else {

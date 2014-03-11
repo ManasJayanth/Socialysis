@@ -2,15 +2,33 @@ var fs = require('fs'),
     natural = require('natural');
 
 function suggestSong(status) {
-    var angerWords = fs.readFileSync('./empathy-files/anger').toString().split(', '),
-        apatheticWords = fs.readFileSync('./empathy-files/apathetic').toString().split(', '),
-        embarrassedWords = fs.readFileSync('./empathy-files/embarrassed').toString().split(', '),
-        exciteWords = fs.readFileSync('./empathy-files/excite').toString().split(', '),
-        fearWords = fs.readFileSync('./empathy-files/fear').toString().split(', '),
-        happyWords = fs.readFileSync('./empathy-files/happy').toString().split(', '),
-        loveWords = fs.readFileSync('./empathy-files/love').toString().split(', '),
-        questionWords = fs.readFileSync('./empathy-files/question').toString().split(', '),
-        sadWords = fs.readFileSync('./empathy-files/sad').toString().split(', ');
+    var angerWords = fs.readFileSync('./empathy-files/anger')
+            .toString()
+            .split(', '),
+        apatheticWords = fs.readFileSync('./empathy-files/apathetic')
+            .toString()
+            .split(', '),
+        embarrassedWords = fs.readFileSync('./empathy-files/embarrassed')
+            .toString()
+            .split(', '),
+        exciteWords = fs.readFileSync('./empathy-files/excite')
+            .toString()
+            .split(', '),
+        fearWords = fs.readFileSync('./empathy-files/fear')
+            .toString()
+            .split(', '),
+        happyWords = fs.readFileSync('./empathy-files/happy')
+            .toString()
+            .split(', '),
+        loveWords = fs.readFileSync('./empathy-files/love')
+            .toString()
+            .split(', '),
+        questionWords = fs.readFileSync('./empathy-files/question')
+            .toString()
+            .split(', '),
+        sadWords = fs.readFileSync('./empathy-files/sad')
+            .toString()
+            .split(', ');
 
     var count = {};
     count.anger = 0;
@@ -51,18 +69,19 @@ function suggestSong(status) {
             count.sad++;
         } else {
             // Nothing
-        }   
+        }
     }
 
     var userEmotion = 'alright', emotionMeter = 0;
-    for(emotion in count) {
+    for(var emotion in count) {
         if(emotionMeter < count[emotion]) {
             emotionMeter = count[emotion];
             userEmotion = emotion;
         }
     }
     
-    songLinks = fs.readFileSync('./empathy-files/mix/' + userEmotion).toString().split(', ');
+    var songLinks = fs.readFileSync('./empathy-files/mix/' + userEmotion)
+            .toString().split(', ');
     return songLinks[ Math.floor(Math.random() * songLinks.length) ];
 }
 
