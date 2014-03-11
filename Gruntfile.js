@@ -33,12 +33,6 @@ module.exports = function(grunt) {
             rmclogs: {
                 // Run the script
                 command: 'bash pre-build/script.bash'
-            },
-            lintIt: {
-                command: 'jshint ' + FILENAME,
-                options: {
-                    stdout: true
-                }
             }
         },
         
