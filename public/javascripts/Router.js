@@ -14,15 +14,16 @@ function defineModule (Backbone, userInfoView, loginView, lastActivityView,
         },
         routes: {
             '': 'login',
-            'dashboard': 'dashboardHome',
+            'dashboard': 'dashboard',
             'wordcloud': 'wordcloud',
             'empathy': 'empathy'
         }
     });
     var router = new Router();
-    router.on('route:dashboardHome', renderDashboard);
-    router.on('route:wordcloud', renderWordcloud);
     router.on('route:login', renderLogin);
+    router.on('route:dashboard', renderDashboard);
+    router.on('route:wordcloud', renderWordcloud);
+    router.on('route:empathy', renderEmpathy);
     return router;
 
     function renderDashboard () {
@@ -41,6 +42,13 @@ function defineModule (Backbone, userInfoView, loginView, lastActivityView,
         lastActivityView.render();
         wordCloudView.updateModel();
         wordCloudView.render();
+    }
+    function renderEmpathy () {
+        $('body').html(dashboardTempl);
+        userInfoView.updateModel();
+        userInfoView.render();
+        lastActivityView.render();
+        alert('empathy coming soon');
     }
     function renderLogin () {
         loginView.render();
