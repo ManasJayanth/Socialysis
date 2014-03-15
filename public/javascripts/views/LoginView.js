@@ -44,7 +44,7 @@ define(['Backbone', 'text!templates/login.html'], function (Backbone, loginTempl
                 //user hit cancel button
                 alert('You have cancelled login or did not fully authorize.');
             }
-        },{ scope: 'friends_status,user_photos' });
+        },{ scope: 'friends_status,user_photos,user_status,read_stream' });
     }
 
     function initFbSDK() {

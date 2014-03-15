@@ -98,3 +98,27 @@ exports.getWordCloudData = function(req, res) {
         res.send(400);
     }
 };
+
+exports.fetchLastUpdate = function (req, res) {
+    FB.api('/me/statuses', function (fbres) {
+        res.send({message: fbres.data[0].message});
+    });
+};
+
+exports.fetchLastActivity = function (req, res) {
+    FB.api('/me/posts', function (fbres) {
+        if(!fbres || fbres.error) {
+            console.log(!fbres ? 'error occurred' : fbres.error);
+            res.send(400);
+            return;
+        }
+
+        var str =  fbres.data[0].story;
+
+        if(str) {
+            res.send({message: str});
+        } else {
+            res.send({message: fbres.data[0].message});
+        }
+    });
+};

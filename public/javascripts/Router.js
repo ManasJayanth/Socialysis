@@ -30,6 +30,7 @@ function defineModule (Backbone, userInfoView, loginView, lastActivityView,
         $('body').html(dashboardTempl);
         userInfoView.updateModel();
         userInfoView.render();
+        lastActivityView.updateModel();
         lastActivityView.render();
         dashboardSpaceView.render();
     }
@@ -39,6 +40,7 @@ function defineModule (Backbone, userInfoView, loginView, lastActivityView,
         $('body').html(dashboardTempl);
         userInfoView.updateModel();
         userInfoView.render();
+        lastActivityView.updateModel();
         lastActivityView.render();
         wordCloudView.updateModel();
         wordCloudView.render();
@@ -47,6 +49,7 @@ function defineModule (Backbone, userInfoView, loginView, lastActivityView,
         $('body').html(dashboardTempl);
         userInfoView.updateModel();
         userInfoView.render();
+        lastActivityView.updateModel();
         lastActivityView.render();
         alert('empathy coming soon');
     }
