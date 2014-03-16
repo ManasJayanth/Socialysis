@@ -35,6 +35,7 @@ app.post('/logout', user.logout);
 app.get('/wordcloud-data', user.getWordCloudData);
 app.get('/user-info', user.getInfo);
 app.get('/last-activity', user.fetchLastActivity);
+app.get('/empathy', user.empathy);
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });

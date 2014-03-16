@@ -2,31 +2,31 @@ var fs = require('fs'),
     natural = require('natural');
 
 function suggestSong(status) {
-    var angerWords = fs.readFileSync('./empathy-files/anger')
+    var angerWords = fs.readFileSync('./modules/empathy-files/anger')
             .toString()
             .split(', '),
-        apatheticWords = fs.readFileSync('./empathy-files/apathetic')
+        apatheticWords = fs.readFileSync('./modules/empathy-files/apathetic')
             .toString()
             .split(', '),
-        embarrassedWords = fs.readFileSync('./empathy-files/embarrassed')
+        embarrassedWords=fs.readFileSync('./modules/empathy-files/embarrassed')
             .toString()
             .split(', '),
-        exciteWords = fs.readFileSync('./empathy-files/excite')
+        exciteWords = fs.readFileSync('./modules/empathy-files/excite')
             .toString()
             .split(', '),
-        fearWords = fs.readFileSync('./empathy-files/fear')
+        fearWords = fs.readFileSync('./modules/empathy-files/fear')
             .toString()
             .split(', '),
-        happyWords = fs.readFileSync('./empathy-files/happy')
+        happyWords = fs.readFileSync('./modules/empathy-files/happy')
             .toString()
             .split(', '),
-        loveWords = fs.readFileSync('./empathy-files/love')
+        loveWords = fs.readFileSync('./modules/empathy-files/love')
             .toString()
             .split(', '),
-        questionWords = fs.readFileSync('./empathy-files/question')
+        questionWords = fs.readFileSync('./modules/empathy-files/question')
             .toString()
             .split(', '),
-        sadWords = fs.readFileSync('./empathy-files/sad')
+        sadWords = fs.readFileSync('./modules/empathy-files/sad')
             .toString()
             .split(', ');
 
@@ -80,9 +80,13 @@ function suggestSong(status) {
         }
     }
     
-    var songLinks = fs.readFileSync('./empathy-files/mix/' + userEmotion)
+    var songLinks = fs.readFileSync('./modules/empathy-files/mix/' +
+                                    userEmotion)
             .toString().split(', ');
-    return songLinks[ Math.floor(Math.random() * songLinks.length) ];
+    return {
+        song: songLinks[ Math.floor(Math.random() * songLinks.length) ],
+        emotion: userEmotion
+    };
 }
 
 // song = suggestSong('I feel bad');

@@ -6,7 +6,8 @@ require.config({
         text: '/javascripts/bower_components/text/text',
         templates: '../templates',
         d3: '/javascripts/bower_components/d3/d3',
-        d3Cloud: '/javascripts/bower_components/d3-cloud/d3.layout.cloud'
+        d3Cloud: '/javascripts/bower_components/d3-cloud/d3.layout.cloud',
+        SC: '//connect.soundcloud.com/sdk'
     },
 
     shim: {
@@ -19,6 +20,9 @@ require.config({
         },
         'jQuery': {
             exports: "$",
+        },
+        'SC': {
+            exports: "SC"
         }
     }
 });

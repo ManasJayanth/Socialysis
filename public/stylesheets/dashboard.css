@@ -114,3 +114,6 @@ div.caption a {
   display: block;
   margin: auto;
 }
+#feeling-text {
+    text-align: left;
+}

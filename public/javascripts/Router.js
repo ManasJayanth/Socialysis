@@ -4,9 +4,11 @@ var dependencies = ['Backbone',
                     'views/LastActivityView',
                     'views/DashboardSpaceView',
                     'views/WordCloudView',
+                    'views/EmpathyPlayer',
                     'text!templates/dashboard-template.html'];
 function defineModule (Backbone, userInfoView, loginView, lastActivityView,
-                       dashboardSpaceView, wordCloudView, dashboardTempl) {
+                       dashboardSpaceView, wordCloudView, empathyView,
+                       dashboardTempl) {
 
     var Router = Backbone.Router.extend({
         initialize: function () {
@@ -51,7 +53,7 @@ function defineModule (Backbone, userInfoView, loginView, lastActivityView,
         userInfoView.render();
         lastActivityView.updateModel();
         lastActivityView.render();
-        alert('empathy coming soon');
+        empathyView.render();
     }
     function renderLogin () {
         loginView.render();

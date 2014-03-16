@@ -1,3 +1,4 @@
+var empathy = require('../modules/empathy');
 var FB = require('fb');
 var wordcloud = require('../modules/wordcloud');
 
@@ -99,11 +100,16 @@ exports.getWordCloudData = function(req, res) {
     }
 };
 
-exports.fetchLastUpdate = function (req, res) {
-    FB.api('/me/statuses', function (fbres) {
-        res.send({message: fbres.data[0].message});
-    });
-};
+// exports.fetchLastUpdate = function () {
+//     FB.api('/me/statuses', function (fbres) {
+//         if(!fbres || fbres.error) {
+//             console.log(!fbres ? 'error occurred' : fbres.error);
+//             return {message: 'Error occured while fetching last status'};
+//         }
+
+//         return {message: fbres.data[0].message};
+//     });
+// };
 
 exports.fetchLastActivity = function (req, res) {
     FB.api('/me/posts', function (fbres) {
@@ -120,5 +126,20 @@ exports.fetchLastActivity = function (req, res) {
         } else {
             res.send({message: fbres.data[0].message});
         }
+    });
+};
+
+
+exports.empathy = function (req, res) {
+
+    FB.api('/me/statuses', function (fbres) {
+        if(!fbres || fbres.error) {
+            console.log(!fbres ? 'error occurred' : fbres.error);
+            res.send ({message: 'Error occured while fetching last status'});
+        }
+
+        var status = fbres.data[0].message,
+            obj = empathy.suggestSong(status);
+        res.send({status: status, song: obj.song, emotion: obj.emotion});
     });
 };
