@@ -1,5 +1,5 @@
 # Socialysis
-Socialysis is a visualization tool to visualize your social data.
+Socialysis is a visualization tool to visualize your social data and your connections.
 
 ## Installation
 Install the npm dependencies
