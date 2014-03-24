@@ -48,6 +48,9 @@ function suggestSong(status) {
         statusWords.push(word.stem());
     });
 
+    console.log('status disected:' );
+    console.log(statusWords);
+
     for(var i in statusWords) {
         if(angerWords.indexOf(statusWords[i]) !== -1) {
             count.anger++;
@@ -72,6 +75,8 @@ function suggestSong(status) {
         }
     }
 
+    console.log(JSON.stringify(count));
+
     var userEmotion = 'alright', emotionMeter = 0;
     for(var emotion in count) {
         if(emotionMeter < count[emotion]) {
@@ -89,7 +94,8 @@ function suggestSong(status) {
     };
 }
 
-// song = suggestSong('I feel bad');
-// console.log('You should listen to: ' + song);
+var song = suggestSong('This is so sad');
+console.log(' You are feeling: ' + song.emotion);
+console.log('You should listen to: ' + song.song);
 
 exports.suggestSong = suggestSong;
