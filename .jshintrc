@@ -5,16 +5,12 @@
     "curly": true,
     "undef": true,
     "globals": {
-                 "PykCharts": true,
-                 "PykLib": true,
-                 "PykOneD": true,
-                 "PykTwoD": true,
                  "console": false,
                  "alert": false,
-                 "d3": true,
                  "$": false,
                  "Backbone": false,
                  "window": false,
+                 "d3": true,
                  "define": false
                 },
     "indent": 4,

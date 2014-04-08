@@ -94,8 +94,8 @@ function suggestSong(status) {
     };
 }
 
-var song = suggestSong('This is so sad');
-console.log(' You are feeling: ' + song.emotion);
-console.log('You should listen to: ' + song.song);
+// var song = suggestSong('This is so sad');
+// console.log(' You are feeling: ' + song.emotion);
+// console.log('You should listen to: ' + song.song);
 
 exports.suggestSong = suggestSong;
